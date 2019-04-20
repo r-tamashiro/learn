@@ -1,0 +1,5 @@
+direnvのインストールと設定
+※ goenvでvendoringまがいのことをできると期待して
+
+brew install direnv
+echo 'eval "$(direnv hook bash)"' >> ~/.bash_profile
