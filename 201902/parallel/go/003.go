@@ -1,3 +1,10 @@
+/**
+ *
+ * 並列処理検証 003
+ * syncを使っての非同期処理 002
+ * deferを使ってDone前のエラー時の処理
+ *
+ */
 package main
 
 import (
@@ -12,7 +19,7 @@ func printHello(wg *sync.WaitGroup, i int) {
     if i  > 3 {
         return
     }
-    fmt.Println("Hello")
+    fmt.Println("Hello", i)
     wg.Done()
 }
 

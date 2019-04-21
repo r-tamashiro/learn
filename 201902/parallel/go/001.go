@@ -1,3 +1,8 @@
+/**
+ *
+ * 並列処理検証 001
+ *
+ */
 package main
 
 import (
@@ -17,10 +22,4 @@ func main() {
     go printHello(&wg)
     fmt.Println("World")
     wg.Wait()
-    //var wg sync.WaitGroup
-    //for i := 0; i < 10; i++ {
-    //    wg.Add(1)
-    //    go printHello(&ng)
-    //}
-    //wg.Wait()
 }

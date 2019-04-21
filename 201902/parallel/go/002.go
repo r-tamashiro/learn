@@ -1,3 +1,9 @@
+/**
+ *
+ * 並列処理検証 002
+ * syncを使っての非同期処理 001
+ *
+ */
 package main
 
 import (
@@ -6,18 +12,16 @@ import (
 )
 
 
-func printHello(wg *sync.WaitGroup) {
-    fmt.Println("Hello")
+func printHello(wg *sync.WaitGroup, i int) {
+    fmt.Println("Hello", i)
     wg.Done()
 }
 
 func main() {
     var wg sync.WaitGroup
-    wg.Add(1)
-    go printHello(&wg)
     for i := 0; i < 10; i++ {
         wg.Add(1)
-        go printHello(&wg)
+        go printHello(&wg, i)
     }
     fmt.Println("World")
     wg.Wait()
