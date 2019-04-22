@@ -14,6 +14,7 @@ import (
 
 
 func sendHello(ch chan<- string) {
+    fmt.Println("重たい処理開始")
     // ここで重たい処理
     time.Sleep(3 * time.Second)
     ch <- "Hello"
@@ -23,6 +24,7 @@ func main() {
     ch := make(chan string)
     go sendHello(ch)
 
+    fmt.Println("それ以外の処理")
     // この間に重たい処理
     msg := <-ch
     fmt.Println(msg)
